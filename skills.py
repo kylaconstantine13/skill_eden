@@ -81,7 +81,7 @@ for group_id in groups[0:1]:
         'description'  : attribute_info.get('description', None),
         'value'        : attribute.get('value', 0),
       }
-      if attribute_data['name'] == "Primary attribute" or attribute_data['name'] == "Secondary attribute":
+      if attribute_data['name'] == "primaryAttribute" or attribute_data['name'] == "secondaryAttribute":
         attribute_operation = app.op['dogma_attributes_attribute_id'](
           attribute_id = attribute_data['value']
         )
@@ -107,7 +107,7 @@ for group_id in groups[0:1]:
         'description'  : effect_info.get('description', None),
         'is_default'   : effect.get('is_default', False),
       }
-      type_data['attributes'].append(effect_data)
+      type_data['effects'].append(effect_data)
       sleep(0.1)
 
 
