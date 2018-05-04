@@ -139,5 +139,3 @@ json_bytes = json_str.encode('utf-8')
 
 with gzip.GzipFile(jsonfilename, 'w') as fout:
   fout.write(json_bytes)
-# pp.pprint(skill_list)
-# print(skill_list)
