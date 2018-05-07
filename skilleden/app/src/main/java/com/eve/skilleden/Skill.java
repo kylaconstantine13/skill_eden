@@ -9,7 +9,7 @@ public class Skill {
     private int alphaLevelCap;
     private Boolean canTrainOnAlpha;
     private Boolean canTrainOnTrial;
-    private int cost;
+    private long cost;
     private String group;
     private Boolean isPublic;
     private List<Skill> prerequisites;
@@ -27,7 +27,16 @@ public class Skill {
         this.name = name;
     }
 
-    public void addSkill(Skill skill) {
-
+    public void setId(int id) {
+        this.id = id;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getId() {
+        return this.id;
+    }
+    public String getName() {
+        return this.name;
     }
 }

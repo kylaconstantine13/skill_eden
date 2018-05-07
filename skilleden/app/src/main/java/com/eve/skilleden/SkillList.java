@@ -5,9 +5,10 @@ import java.io.InputStreamReader;
 import java.util.zip.GZIPInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import java.util.List;
+import com.google.gson.Gson;
+import java.util.*;
+import java.lang.reflect.Type;
+import com.google.gson.reflect.TypeToken;
 
 public class SkillList {
     private List<SkillGroup> list;
@@ -23,54 +24,28 @@ public class SkillList {
     }
 
     public void populateAllSkills() {
-        System.out.println("Working Directory = " + System.getProperty("user.dir"));
-        return;
-//        String gzipfile = "eve_skills.json.gz";
-//        StringBuilder sb = new StringBuilder();
-//        try {
-//            FileInputStream fis = new FileInputStream(gzipfile);
-//            GZIPInputStream gis = new GZIPInputStream(fis);
-//            BufferedReader br = new BufferedReader(new InputStreamReader(gis, "UTF-8"));
-//            String line;
-//            while ((line = br.readLine()) != null) {
-//                sb.append(line);
-//            }
-//            br.close();
-//            gis.close();
-//            fis.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        JSONArray allSkills = null;
-//        try {
-//            allSkills = new JSONArray(sb.toString());
-//        } catch (org.json.JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//        System.out.println(allSkills.toString());
+        String gzipfile = "resources/eve_skills.json.gz";
+        StringBuilder sb = new StringBuilder();
+        try {
+            FileInputStream fis = new FileInputStream(gzipfile);
+            GZIPInputStream gis = new GZIPInputStream(fis);
+            BufferedReader br = new BufferedReader(new InputStreamReader(gis, "UTF-8"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+            }
+            br.close();
+            gis.close();
+            fis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-//        if (allSkills != null) {
-//            int len = allSkills.length();
-//            for (int i = 0; i < len; ++i) {
-//                try {
-//                    JSONObject sg = new JSONObject((String) allSkills.get(i));
-//                } catch (org.json.JSONException e) {
-//                    e.printStackTrace();
-//                }
-//                SkillGroup skillGroup = new SkillGroup(sg);
-//                JSONArray skills = new JSONArray(sg.get("skills"));
-//                Iterator skillsIt = skills.iterator();
-//                while (skillsIt.hasNext()) {
-//                    Skill skill = new Skill(
-//                        new JSONObject(skillsIt.next())
-//                    );
-//                    skillGroup.addSkill(skill);
-//                }
-//                this.addGroup(skillGroup);
-//            }
-//        }
+        Gson gson = new Gson();
+        Type skillGroupListType = new TypeToken<ArrayList<SkillGroup>>(){}.getType();
+        List<SkillGroup> allSkills = gson.fromJson(sb.toString(), skillGroupListType);
+        System.out.println(allSkills.get(0).getSkill(1).getName());
+        return;
     }
 
     public void addGroup(SkillGroup group) {
