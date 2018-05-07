@@ -8,8 +8,8 @@ import json
 import csv
 
 # Constants
-jsonfilename                  = "Skill_Eden app/resources//eve_skills.json.gz"
-alpha_skill_list              = "Skill_Eden app/resources//alpha_skill_list.txt"
+jsonfilename                  = "skilleden/resources/eve_skills.json.gz"
+alpha_skill_list              = "skilleden/resources/alpha_skill_list.txt"
 SKILL_CATEGORY_ID             = 16
 SKILL_TIME_CONSTANT_ATTR_ID   = 275
 PRIMARY_ATTRIBUTE_ID          = 180
