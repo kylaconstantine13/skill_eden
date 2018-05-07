@@ -26,4 +26,8 @@ public class Skill {
     public Skill(String name) {
         this.name = name;
     }
+
+    public void addSkill(Skill skill) {
+
+    }
 }
