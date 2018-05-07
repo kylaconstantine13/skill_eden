@@ -1,4 +1,4 @@
-package com.example.sky3.skilleden;
+package com.eve.skilleden;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.sky3.skilleden", appContext.getPackageName());
+        assertEquals("com.eve.skilleden", appContext.getPackageName());
     }
 }

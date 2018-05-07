@@ -1,4 +1,4 @@
-package com.example.sky3.skilleden;
+package com.eve.skilleden;
 
 import org.junit.Test;
 
