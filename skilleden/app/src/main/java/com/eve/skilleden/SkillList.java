@@ -5,9 +5,14 @@ import java.io.InputStreamReader;
 import java.util.zip.GZIPInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+
+import com.eve.skilleden.model.Skill;
+import com.eve.skilleden.model.SkillGroup;
 import com.google.gson.Gson;
+
 import java.util.*;
 import java.lang.reflect.Type;
+
 import com.google.gson.reflect.TypeToken;
 
 public class SkillList {
@@ -42,9 +47,16 @@ public class SkillList {
         }
 
         Gson gson = new Gson();
-        Type skillGroupListType = new TypeToken<ArrayList<SkillGroup>>(){}.getType();
+        Type skillGroupListType = new TypeToken<ArrayList<SkillGroup>>() {
+        }.getType();
         List<SkillGroup> allSkills = gson.fromJson(sb.toString(), skillGroupListType);
-        System.out.println(allSkills.get(0).getSkill(1).getName());
+        System.out.println("Test all skills");
+        for (SkillGroup skillGroup : allSkills) {
+            System.out.println("Skill Group: " + skillGroup.getName());
+            for (Skill skill : skillGroup.getSkills()) {
+                System.out.println("\t" + skill.getName());
+            }
+        }
         return;
     }
 
