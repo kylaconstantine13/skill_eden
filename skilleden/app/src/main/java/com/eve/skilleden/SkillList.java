@@ -2,7 +2,6 @@ package com.eve.skilleden;
 
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.util.zip.GZIPInputStream;
 import java.io.FileInputStream;
@@ -18,23 +17,19 @@ import java.lang.reflect.Type;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-//TODO: refactor to build class to try to populate  skills
+
+//TODO: refactor to build class to try to populate  skills - build ticket - fix SkillListViewModel
+//TODO: also make this singleton -- this isn't character specific.
 public class SkillList {
-    private List<SkillGroup> list;
-    private static final Logger log = LogManager.getLogger(SkillList.class);
+    private List<SkillGroup> skillGroupList;
+    private static final Logger log = LoggerFactory.getLogger(SkillList.class);
 
     public SkillList() {
-        list = null;
+        skillGroupList = new ArrayList<>();
     }
-
-//    public static void main(String[] args) {
-//        SkillList newList = new SkillList();
-//        newList.populateAllSkills();
-//        newList.toString();
-//    } TODO: remove for production?
 
     public void populateAllSkills() {
         String gzipfile = "resources/eve_skills.json.gz";
@@ -61,7 +56,7 @@ public class SkillList {
                     System.out.println("\t" + skill.getName());
                 }
             }
-            return;
+            this.skillGroupList = allSkills;
         } catch (IOException e) {
             log.error("Could not extract skills from local resources.");
             e.printStackTrace();
@@ -71,7 +66,7 @@ public class SkillList {
         }
     }
 
-    public void addGroup(SkillGroup group) {
-//        list.append(group);
+    public List<SkillGroup> getSkillGroups() {
+        return this.skillGroupList;
     }
 }
