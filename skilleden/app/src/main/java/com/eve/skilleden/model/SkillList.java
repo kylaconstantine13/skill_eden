@@ -1,4 +1,4 @@
-package com.eve.skilleden;
+package com.eve.skilleden.model;
 
 
 import java.io.BufferedReader;
@@ -7,8 +7,6 @@ import java.util.zip.GZIPInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import com.eve.skilleden.model.Skill;
-import com.eve.skilleden.model.SkillGroup;
 import com.google.gson.Gson;
 
 import java.util.*;

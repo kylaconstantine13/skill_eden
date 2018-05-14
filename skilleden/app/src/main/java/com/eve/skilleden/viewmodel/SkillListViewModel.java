@@ -5,7 +5,7 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
-import com.eve.skilleden.SkillList;
+import com.eve.skilleden.model.SkillList;
 import com.eve.skilleden.model.SkillGroup;
 
 import java.util.List;
