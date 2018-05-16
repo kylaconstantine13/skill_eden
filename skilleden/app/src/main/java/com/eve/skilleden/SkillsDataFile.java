@@ -19,38 +19,45 @@ import java.net.URL;
 import java.io.File;
 
 public class SkillsDataFile {
+    private static final String gzipfile = "eve_skills.jsongz";
     private List<SkillGroup> skillGroups;
 
-     SkillsDataFile(AssetManager assets) {
-        String gzipfile = "eve_skills.jsongz";
+    SkillsDataFile() {
+        URL resource = this.getClass().getClassLoader().getResource(gzipfile);
+
+        if (resource == null) {
+            throw new MissingResourceException("Unable to load skills resource", this.getClass().toString(), gzipfile);
+        }
+
+        File file;
+        try {
+            file = new File(resource.toURI());
+        } catch (java.net.URISyntaxException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            loadDataFile(fis);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    SkillsDataFile(AssetManager assets) {
+        try {
+            AssetFileDescriptor fileDescriptor = assets.openFd(gzipfile);
+            FileInputStream fis = fileDescriptor.createInputStream();
+            loadDataFile(fis);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadDataFile(FileInputStream fis) {
         StringBuilder sb = new StringBuilder();
         try {
-
-            FileInputStream fis = null;
-            if (assets != null) {
-                AssetFileDescriptor fileDescriptor = assets.openFd(gzipfile);
-                fis = fileDescriptor.createInputStream();
-            } else {
-                URL resource = this.getClass().getClassLoader().getResource(gzipfile);
-
-                if (resource == null) {
-                    throw new MissingResourceException("Unable to load skills resource", this.getClass().toString(), gzipfile);
-                }
-
-                File file;
-                try {
-                    file = new File(resource.toURI());
-                } catch (java.net.URISyntaxException e) {
-                    e.printStackTrace();
-                    return;
-                }
-
-                fis = new FileInputStream(file);
-            }
-
-            if (fis == null) {
-                throw new MissingResourceException("Unable to load skills resource", this.getClass().toString(), gzipfile);
-            }
             GZIPInputStream gis = new GZIPInputStream(fis);
             BufferedReader br = new BufferedReader(new InputStreamReader(gis, "UTF-8"));
             String line;

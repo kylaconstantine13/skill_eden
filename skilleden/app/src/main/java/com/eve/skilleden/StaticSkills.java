@@ -22,6 +22,7 @@ public class StaticSkills {
         this.groupsByName = new HashMap<String, SkillGroup>();
         this.skillsById = new HashMap<Integer, Skill>();
         this.skillsByName = new HashMap<String, Skill>();
+        this.assets = null;
     }
 
     StaticSkills(AssetManager assets) {
@@ -35,7 +36,12 @@ public class StaticSkills {
     }
 
     public void load() {
-        SkillsDataFile file = new SkillsDataFile(assets);
+        SkillsDataFile file;
+        if (this.assets != null) {
+            file = new SkillsDataFile(assets);
+        } else {
+            file = new SkillsDataFile();
+        }
 
         for (SkillGroup sg : file.getSkillGroups()) {
             SkillGroup group = new SkillGroup(sg.getId(), sg.getName());
