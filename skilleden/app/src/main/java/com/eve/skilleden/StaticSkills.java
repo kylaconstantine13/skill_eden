@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class StaticSkills {
-    private AssetManager assets;
     private List<SkillGroup> groups;
     private List<Skill> skills;
     private HashMap<Integer, SkillGroup> groupsById;
@@ -22,7 +21,6 @@ public class StaticSkills {
         this.groupsByName = new HashMap<String, SkillGroup>();
         this.skillsById = new HashMap<Integer, Skill>();
         this.skillsByName = new HashMap<String, Skill>();
-        this.assets = null;
     }
 
     StaticSkills(AssetManager assets) {
@@ -32,12 +30,15 @@ public class StaticSkills {
         this.groupsByName = new HashMap<String, SkillGroup>();
         this.skillsById = new HashMap<Integer, Skill>();
         this.skillsByName = new HashMap<String, Skill>();
-        this.assets = assets;
     }
 
     public void load() {
+        load(null);
+    }
+
+    public void load(AssetManager assets) {
         SkillsDataFile file;
-        if (this.assets != null) {
+        if (assets != null) {
             file = new SkillsDataFile(assets);
         } else {
             file = new SkillsDataFile();
