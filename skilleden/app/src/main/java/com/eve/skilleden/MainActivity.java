@@ -17,11 +17,6 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
     //implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerLayout;
@@ -70,43 +65,10 @@ public class MainActivity extends AppCompatActivity {
 
                             // Handle the camera action
                         } else if (id == R.id.skill_list) {
-                            stringTextView = (TextView) findViewById(R.id.textView2);
-                            List<String> stringData = new ArrayList<String>();
-                            stringData.add("ONE");
-                            stringData.add("TWO");
-                            stringData.add("THREE");
-                            stringData.add("Four");
-                            stringData.add("Five");
-                            stringData.add("Six");
-                            stringData.add("Seven");
-                            for (int i = 0; i < stringData.size(); i++) {
-                                stringTextView.setText(stringTextView.getText() + stringData.get(i) + " , ");
-                            }
-
-
-                            String json =
-                                    "{"
-                                            + "'title': 'Computing and Information systems',"
-                                            + "'id' : 1,"
-                                            + "'children' : 'true',"
-                                            + "'groups' : [{"
-                                            + "'title' : 'Level one CIS',"
-                                            + "'id' : 2,"
-                                            + "'children' : 'true',"
-                                            + "'groups' : [{"
-                                            + "'title' : 'Intro To Computing and Internet',"
-                                            + "'id' : 3,"
-                                            + "'children': 'false',"
-                                            + "'groups':[]"
-                                            + "}]"
-                                            + "}]"
-                                            + "}";
-
-                            // Now do the magic.
-                            //Data data = new Gson().fromJson(json, Data.class);
-
-                            // Show it.
-
+                            stringTextView = findViewById(R.id.textView2);
+                            StaticSkills list = new StaticSkills();
+                            list.load();
+//                            stringTextView.setText(list.printAllSkills());
                         } else if (id == R.id.messaging) {
 
                         }
