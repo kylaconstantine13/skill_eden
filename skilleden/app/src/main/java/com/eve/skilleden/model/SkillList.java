@@ -67,4 +67,15 @@ public class SkillList {
     public List<SkillGroup> getSkillGroups() {
         return this.skillGroupList;
     }
+
+    public Optional<SkillGroup> getSkillGroup(final int skillGroupId) {
+        Optional<SkillGroup> skillGroupOpt = Optional.empty();
+        for (SkillGroup skillGroup : this.skillGroupList) {
+            if (skillGroup.getId() == skillGroupId) {
+                skillGroupOpt = Optional.of(skillGroup);
+                break;
+            }
+        }
+        return skillGroupOpt;
+    }
 }

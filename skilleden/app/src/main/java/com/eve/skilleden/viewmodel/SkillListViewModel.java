@@ -2,32 +2,29 @@ package com.eve.skilleden.viewmodel;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
+
 import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MediatorLiveData;
 import android.support.annotation.NonNull;
 
+import com.eve.skilleden.SkillListRepository;
 import com.eve.skilleden.model.SkillList;
-import com.eve.skilleden.model.SkillGroup;
 
-import java.util.List;
-
-//TODO: determine if there is need for live data mediator  -- might be necessary - livedata
-
+//TODO:live data mediator might be necessary in future
+//source: https://github.com/googlesamples/android-architecture-components/blob/master/BasicSample/app/src/main/java/com/example/android/persistence/viewmodel/ProductViewModel.java
 public class SkillListViewModel extends AndroidViewModel {
+    private final MediatorLiveData<SkillList> mObservableSkillList;
 
-    private List<SkillGroup> skillGroups;
 
-    public SkillListViewModel(@NonNull Application application) {
+    public SkillListViewModel(@NonNull Application application, SkillListRepository repository) {
         super(application);
-
-        SkillList skillList = new SkillList();
-        skillList.populateAllSkills(); //TODO: we shouldn't have to worry about this extra step.
-        this.skillGroups = skillList.getSkillGroups();
+        mObservableSkillList = null;
+        LiveData<SkillList> skillListLiveData = repository.getSkillLists();
+        mObservableSkillList.addSource(skillListLiveData, mObservableSkillList::setValue);
     }
 
-
-    @Override
-    protected void onCleared() {
-        LiveData liveData; //TODO: place holder
-        super.onCleared();
+    public LiveData<SkillList> getSkillList() {
+        return mObservableSkillList;
     }
 }
+
