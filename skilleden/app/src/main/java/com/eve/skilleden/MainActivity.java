@@ -1,6 +1,8 @@
 package com.eve.skilleden;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -113,6 +116,22 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+    }
+
+    public void buttonOnClick(View v) {
+        Button testButton = (Button) v;
+        ((Button) v).setText("SUP DOODS");
+        //v = (Button)findViewById(R.id.reset);
+
+        ConstraintLayout background = (ConstraintLayout) findViewById(R.id.make_background); //Gets the background object
+        background.setBackgroundColor(Color.RED); //change backgrond object color to red
+
+        TextView middleText = (TextView) findViewById(R.id.textView2);
+        middleText.setText("Change text");
+
+        /*View view = this.getWindow().getDecorView();
+        view.setBackgroundColor(15);
+        //testButton = findViewById(R.id.reset);*/
     }
 
 
