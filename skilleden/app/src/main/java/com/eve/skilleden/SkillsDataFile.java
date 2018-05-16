@@ -1,5 +1,8 @@
 package com.eve.skilleden;
 
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -18,22 +21,36 @@ import java.io.File;
 public class SkillsDataFile {
     private List<SkillGroup> skillGroups;
 
-     SkillsDataFile() {
-        String gzipfile = "eve_skills.json.gz";
+     SkillsDataFile(AssetManager assets) {
+        String gzipfile = "eve_skills.jsongz";
         StringBuilder sb = new StringBuilder();
         try {
-            URL resource = this.getClass().getClassLoader().getResource(gzipfile);
-            if (resource == null) {
+
+            FileInputStream fis = null;
+            if (assets != null) {
+                AssetFileDescriptor fileDescriptor = assets.openFd(gzipfile);
+                fis = fileDescriptor.createInputStream();
+            } else {
+                URL resource = this.getClass().getClassLoader().getResource(gzipfile);
+
+                if (resource == null) {
+                    throw new MissingResourceException("Unable to load skills resource", this.getClass().toString(), gzipfile);
+                }
+
+                File file;
+                try {
+                    file = new File(resource.toURI());
+                } catch (java.net.URISyntaxException e) {
+                    e.printStackTrace();
+                    return;
+                }
+
+                fis = new FileInputStream(file);
+            }
+
+            if (fis == null) {
                 throw new MissingResourceException("Unable to load skills resource", this.getClass().toString(), gzipfile);
             }
-            File file;
-            try {
-                file = new File(resource.toURI());
-            } catch (java.net.URISyntaxException e) {
-                e.printStackTrace();
-                return;
-            }
-            FileInputStream fis = new FileInputStream(file);
             GZIPInputStream gis = new GZIPInputStream(fis);
             BufferedReader br = new BufferedReader(new InputStreamReader(gis, "UTF-8"));
             String line;
@@ -48,8 +65,7 @@ public class SkillsDataFile {
         }
 
         Gson gson = new Gson();
-        Type skillGroupListType = new TypeToken<ArrayList<SkillGroup>>() {
-        }.getType();
+        Type skillGroupListType = new TypeToken<ArrayList<SkillGroup>>(){}.getType();
         this.skillGroups = gson.fromJson(sb.toString(), skillGroupListType);
     }
 

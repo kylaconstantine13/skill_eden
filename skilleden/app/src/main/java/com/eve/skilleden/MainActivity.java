@@ -66,9 +66,9 @@ public class MainActivity extends AppCompatActivity {
                             // Handle the camera action
                         } else if (id == R.id.skill_list) {
                             stringTextView = findViewById(R.id.textView2);
-                            StaticSkills list = new StaticSkills();
+                            StaticSkills list = new StaticSkills(getAssets());
                             list.load();
-//                            stringTextView.setText(list.printAllSkills());
+                            stringTextView.setText(list.groupNamesToString());
                         } else if (id == R.id.messaging) {
 
                         }
