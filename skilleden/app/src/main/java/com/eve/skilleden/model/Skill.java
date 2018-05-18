@@ -39,4 +39,7 @@ public class Skill {
     public String getName() {
         return this.name;
     }
+    public String getGroup() {
+        return this.group;
+    }
 }

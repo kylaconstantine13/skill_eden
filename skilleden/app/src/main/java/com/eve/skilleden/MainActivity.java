@@ -1,6 +1,8 @@
 package com.eve.skilleden;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -12,12 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     //implements NavigationView.OnNavigationItemSelectedListener {
@@ -67,43 +65,10 @@ public class MainActivity extends AppCompatActivity {
 
                             // Handle the camera action
                         } else if (id == R.id.skill_list) {
-                            stringTextView = (TextView) findViewById(R.id.textView2);
-                            List<String> stringData = new ArrayList<String>();
-                            stringData.add("ONE");
-                            stringData.add("TWO");
-                            stringData.add("THREE");
-                            stringData.add("Four");
-                            stringData.add("Five");
-                            stringData.add("Six");
-                            stringData.add("Seven");
-                            for (int i = 0; i < stringData.size(); i++) {
-                                stringTextView.setText(stringTextView.getText() + stringData.get(i) + " , ");
-                            }
-
-
-                            String json =
-                                    "{"
-                                            + "'title': 'Computing and Information systems',"
-                                            + "'id' : 1,"
-                                            + "'children' : 'true',"
-                                            + "'groups' : [{"
-                                            + "'title' : 'Level one CIS',"
-                                            + "'id' : 2,"
-                                            + "'children' : 'true',"
-                                            + "'groups' : [{"
-                                            + "'title' : 'Intro To Computing and Internet',"
-                                            + "'id' : 3,"
-                                            + "'children': 'false',"
-                                            + "'groups':[]"
-                                            + "}]"
-                                            + "}]"
-                                            + "}";
-
-                            // Now do the magic.
-                            //Data data = new Gson().fromJson(json, Data.class);
-
-                            // Show it.
-
+                            stringTextView = findViewById(R.id.textView2);
+                            StaticSkills list = new StaticSkills();
+                            list.load(getAssets());
+                            stringTextView.setText(list.groupNamesToString());
                         } else if (id == R.id.messaging) {
 
                         }
@@ -113,6 +78,22 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+    }
+
+    public void buttonOnClick(View v) {
+        Button testButton = (Button) v;
+        ((Button) v).setText("SUP DOODS");
+        //v = (Button)findViewById(R.id.reset);
+
+        ConstraintLayout background = (ConstraintLayout) findViewById(R.id.make_background); //Gets the background object
+        background.setBackgroundColor(Color.RED); //change backgrond object color to red
+
+        TextView middleText = (TextView) findViewById(R.id.textView2);
+        middleText.setText("Change text");
+
+        /*View view = this.getWindow().getDecorView();
+        view.setBackgroundColor(15);
+        //testButton = findViewById(R.id.reset);*/
     }
 
 
