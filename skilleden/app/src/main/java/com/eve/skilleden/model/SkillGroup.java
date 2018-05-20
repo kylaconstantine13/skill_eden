@@ -8,12 +8,12 @@ public class SkillGroup {
     private String name;
     private List<Skill> skills;
 
-    SkillGroup() {
+    public SkillGroup() {
         this.id = 0;
         this.name = "Unknown Skill Group";
         this.skills = new ArrayList<Skill>();
     }
-    SkillGroup(int id, String name) {
+    public SkillGroup(int id, String name) {
         this.id = id;
         this.name = name;
         this.skills = new ArrayList<Skill>();
