@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     //implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerLayout;
     TextView stringTextView;
+//    private StaticSkills staticSkills;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
+
+
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(
@@ -105,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         //testButton = findViewById(R.id.reset);*/
     }
 
-    public void openSkillActivity(){
+    public void openSkillActivity() {
         Intent intent = new Intent(this, SkillActivity.class);
         startActivity(intent);
     }

@@ -19,7 +19,7 @@ public class SkillListViewModel extends AndroidViewModel {
     public SkillListViewModel(@NonNull Application application, SkillListRepository repository) {
         super(application);
         mObservableSkillList = null;
-        LiveData<SkillList> skillListLiveData = repository.getSkillLists();
+        LiveData<SkillList> skillListLiveData = repository.getSkillList();
         mObservableSkillList.addSource(skillListLiveData, mObservableSkillList::setValue);
     }
 
