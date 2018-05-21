@@ -2,6 +2,9 @@ package com.eve.skilleden;
 
 import android.content.res.AssetManager;
 
+import com.eve.skilleden.model.Skill;
+import com.eve.skilleden.model.SkillGroup;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;

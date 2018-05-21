@@ -3,6 +3,7 @@ package com.eve.skilleden;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 
+import com.eve.skilleden.model.SkillGroup;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

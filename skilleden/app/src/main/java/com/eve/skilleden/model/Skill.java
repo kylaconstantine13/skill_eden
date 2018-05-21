@@ -1,4 +1,4 @@
-package com.eve.skilleden;
+package com.eve.skilleden.model;
 
 import java.util.List;
 

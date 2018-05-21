@@ -1,5 +1,6 @@
 package com.eve.skilleden;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -15,12 +16,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     //implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerLayout;
     TextView stringTextView;
+//    private StaticSkills staticSkills;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
+
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -65,10 +70,17 @@ public class MainActivity extends AppCompatActivity {
 
                             // Handle the camera action
                         } else if (id == R.id.skill_list) {
-                            stringTextView = findViewById(R.id.textView2);
-                            StaticSkills list = new StaticSkills();
-                            list.load(getAssets());
-                            stringTextView.setText(list.groupNamesToString());
+//                            stringTextView = findViewById(R.id.textView2);
+////                            ListView = findViewById(R.id.))
+//
+//                            StaticSkills list = new StaticSkills();
+//                            list.load(getAssets());
+//                            stringTextView.setText(list.groupNamesToString());
+
+                            openSkillActivity();
+//                            Intent intent = new Intent(this, SkillActivity.class);
+//                            startActivity(intent);
+
                         } else if (id == R.id.messaging) {
 
                         }
@@ -94,6 +106,11 @@ public class MainActivity extends AppCompatActivity {
         /*View view = this.getWindow().getDecorView();
         view.setBackgroundColor(15);
         //testButton = findViewById(R.id.reset);*/
+    }
+
+    public void openSkillActivity() {
+        Intent intent = new Intent(this, SkillActivity.class);
+        startActivity(intent);
     }
 
 
