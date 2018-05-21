@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                         int id = menuItem.getItemId();
 
                         if (id == R.id.skill_plans) {
-
+                            openSkillPlanActivity();
                             // Handle the camera action
                         } else if (id == R.id.skill_list) {
 //                            stringTextView = findViewById(R.id.textView2);
@@ -106,6 +106,10 @@ public class MainActivity extends AppCompatActivity {
         /*View view = this.getWindow().getDecorView();
         view.setBackgroundColor(15);
         //testButton = findViewById(R.id.reset);*/
+    }
+    public void openSkillPlanActivity(){
+        Intent intent = new Intent(this, SkillPlanActivity.class);
+        startActivity(intent);
     }
 
     public void openSkillActivity() {
