@@ -28,7 +28,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".SkillPlanActivity"></activity>
+        <activity android:name=".SkillPlanActivity" />
+        <activity android:name=".Messages"></activity>
     </application>
 
 </manifest>
