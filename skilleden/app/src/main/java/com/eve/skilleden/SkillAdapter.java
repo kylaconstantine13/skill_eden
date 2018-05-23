@@ -39,6 +39,7 @@ public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.ViewHolder> 
         }
     }
 
+    //constructor that takes in a staticskill as input
     public SkillAdapter(StaticSkills staticSkills) {
         this.staticSkills = staticSkills;
         this.skillGroupList = staticSkills.getGroups();

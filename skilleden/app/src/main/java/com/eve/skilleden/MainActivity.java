@@ -108,9 +108,10 @@ public class MainActivity extends AppCompatActivity {
         //testButton = findViewById(R.id.reset);*/
     }
     public void openSkillPlanActivity(){
-        Intent intent = new Intent(this, SkillPlanActivity.class);
+        Intent intent = new Intent(this, SkillPlanTabbedActivity.class);
         startActivity(intent);
     }
+
 
     public void openSkillActivity() {
         Intent intent = new Intent(this, SkillActivity.class);

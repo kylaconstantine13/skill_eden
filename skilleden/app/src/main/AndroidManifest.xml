@@ -28,7 +28,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".SkillPlanActivity"></activity>
+        <activity android:name=".SkillPlanActivity" />
+        <activity
+            android:name=".SkillPlanTabbedActivity"
+            android:label="@string/title_activity_skill_plan_tabbed"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
