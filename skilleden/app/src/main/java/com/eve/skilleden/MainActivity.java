@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 //                            startActivity(intent);
 
                         } else if (id == R.id.messaging) {
-
+                            openMessages();
                         }
 
                         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -118,6 +118,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openMessages() {
+        Intent intent = new Intent(this, Messages.class);
+        startActivity(intent);
+    }
 
     @Override
     public void onBackPressed() {
