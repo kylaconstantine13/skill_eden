@@ -29,14 +29,11 @@
                 android:value=".MainActivity" />
         </activity>
         <activity android:name=".SkillPlanActivity" />
-<<<<<<< HEAD
         <activity
             android:name=".SkillPlanTabbedActivity"
             android:label="@string/title_activity_skill_plan_tabbed"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-=======
         <activity android:name=".Messages"></activity>
->>>>>>> bedbdefb805e6c4e43b902b572db85d558ad6fb2
     </application>
 
 </manifest>
