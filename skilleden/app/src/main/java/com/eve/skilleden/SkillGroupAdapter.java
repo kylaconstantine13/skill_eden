@@ -78,9 +78,9 @@ public class SkillGroupAdapter extends ExpandableRecyclerAdapter<SkillGroupParen
                 Log.d(TAG, skill.getName() + " clicked.");
                 Context context = v.getContext();
                 Intent intent = new Intent(context, SkillDetailActivity.class);
-//                intent.putExtra("skill_description", skill.getDescription());
-//                intent.putExtra("skill_name", skill.getName());
-//                intent.putExtra("skill_cost", skill.getCost());
+                intent.putExtra("skill_description", skill.getDescription());
+                intent.putExtra("skill_name", skill.getName());
+                intent.putExtra("skill_cost", skill.getCost());
                 context.startActivity(intent);
             }
         });

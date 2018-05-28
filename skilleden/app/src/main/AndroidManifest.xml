@@ -34,7 +34,15 @@
             android:label="@string/title_activity_skill_plan_tabbed"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Messages" />
-        <activity android:name=".SkillDetailActivity"></activity>
+        <activity android:name=".SkillDetailActivity"
+            android:parentActivityName=".SkillActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SkillActivity" />
+
+        </activity>
     </application>
 
 </manifest>
