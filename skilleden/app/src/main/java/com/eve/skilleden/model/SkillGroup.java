@@ -13,7 +13,7 @@ public class SkillGroup {
     public SkillGroup() {
         this.id = 0;
         this.name = "Unknown Skill Group";
-        this.skills = new ArrayList<Skill>();
+        this.skills = new ArrayList<>();
     }
 
     public SkillGroup(int id, String name) {
@@ -22,7 +22,7 @@ public class SkillGroup {
         }
         this.id = id;
         this.name = name;
-        this.skills = new ArrayList<Skill>();
+        this.skills = new ArrayList<>();
 
     }
 
@@ -58,6 +58,7 @@ public class SkillGroup {
         return "SkillGroup{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", list=" + skills +
                 '}';
     }
 }

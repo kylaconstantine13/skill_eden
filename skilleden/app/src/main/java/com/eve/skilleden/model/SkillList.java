@@ -47,7 +47,6 @@ public class SkillList {
             Type skillGroupListType = new TypeToken<ArrayList<SkillGroup>>() {
             }.getType();
             List<SkillGroup> allSkills = gson.fromJson(sb.toString(), skillGroupListType);
-            System.out.println("Test all skills"); //TODO: remove
             for (SkillGroup skillGroup : allSkills) {
                 System.out.println("Skill Group: " + skillGroup.getName());
                 for (Skill skill : skillGroup.getSkills()) {

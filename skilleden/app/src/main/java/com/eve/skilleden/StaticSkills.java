@@ -1,6 +1,7 @@
 package com.eve.skilleden;
 
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import com.eve.skilleden.model.Skill;
 import com.eve.skilleden.model.SkillGroup;
@@ -8,6 +9,8 @@ import com.eve.skilleden.model.SkillGroup;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import static android.content.ContentValues.TAG;
 
 public class StaticSkills {
     private List<SkillGroup> groups;
@@ -47,6 +50,7 @@ public class StaticSkills {
             file = new SkillsDataFile();
         }
 
+        Log.d(TAG, "Creating static skill list.  "); //TODO: remove
         for (SkillGroup sg : file.getSkillGroups()) {
             SkillGroup group = new SkillGroup(sg.getId(), sg.getName());
             groups.add(group);
@@ -57,27 +61,34 @@ public class StaticSkills {
                 skillsById.put(s.getId(), s);
                 skillsByName.put(s.getName(), s);
             }
+            group.setskills(sg.getSkills());
         }
     }
 
     public List<SkillGroup> getGroups() {
         return this.groups;
     }
+
     public List<Skill> getSkills() {
         return this.skills;
     }
+
     public HashMap<Integer, SkillGroup> getGroupsById() {
         return this.groupsById;
     }
+
     public HashMap<String, SkillGroup> getGroupsByName() {
         return this.groupsByName;
     }
+
     public HashMap<Integer, Skill> getSkillsById() {
         return this.skillsById;
     }
+
     public HashMap<String, Skill> getSkillsByName() {
         return this.skillsByName;
     }
+
     public String groupNamesToString() {
         StringBuilder sb = new StringBuilder();
         for (SkillGroup sg : this.groups) {

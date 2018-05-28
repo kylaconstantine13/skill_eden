@@ -1,5 +1,7 @@
 package com.eve.skilleden.model;
 
+import android.support.annotation.NonNull;
+
 import java.util.List;
 
 public class Skill {
@@ -23,23 +25,43 @@ public class Skill {
         this.description = "An unknown skill.";
     }
 
-    public Skill(String name) {
+    public Skill(@NonNull String name) {
         this.name = name;
     }
 
     public void setId(int id) {
         this.id = id;
     }
-    public void setName(String name) {
+
+    public void setName(@NonNull String name) {
         this.name = name;
     }
+
     public int getId() {
         return this.id;
     }
+
     public String getName() {
         return this.name;
     }
+
     public String getGroup() {
         return this.group;
+    }
+
+    @Override
+    public String toString() {
+        return "Skill{" +
+                "name='" + name + '\'' +
+//                ", description='" + description + '\'' +
+//                ", alphaLevelCap=" + alphaLevelCap +
+//                ", canTrainOnAlpha=" + canTrainOnAlpha +
+//                ", canTrainOnTrial=" + canTrainOnTrial +
+//                ", cost=" + cost +
+//                ", prerequisites=" + prerequisites +
+//                ", primaryAttr='" + primaryAttr + '\'' +
+//                ", secondaryAttr='" + secondaryAttr + '\'' +
+//                ", rank=" + rank + TODO: format later
+                '}';
     }
 }

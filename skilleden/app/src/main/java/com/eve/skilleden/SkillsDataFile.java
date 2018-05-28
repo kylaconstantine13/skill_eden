@@ -2,6 +2,7 @@ package com.eve.skilleden;
 
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import com.eve.skilleden.model.SkillGroup;
 import com.google.gson.Gson;
@@ -18,6 +19,8 @@ import java.util.ArrayList;
 import java.util.zip.GZIPInputStream;
 import java.net.URL;
 import java.io.File;
+
+import static android.content.ContentValues.TAG;
 
 public class SkillsDataFile {
     private static final String gzipfile = "eve_skills.jsongz";
@@ -73,6 +76,8 @@ public class SkillsDataFile {
         }
 
         Gson gson = new Gson();
+        Log.d(TAG,"LOADING SKILLS FROM FILE  " + sb.toString());
+
         Type skillGroupListType = new TypeToken<ArrayList<SkillGroup>>(){}.getType();
         this.skillGroups = gson.fromJson(sb.toString(), skillGroupListType);
     }

@@ -30,7 +30,8 @@ public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.ViewHolder> 
                     Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
                 }
             });
-            mTextView = (TextView) v.findViewById(R.id.skillGroupTextView);
+            mTextView = (TextView) v.findViewById(R.id.skill_group_text_view);
+            //skill_group_row_item.xml
 
         }
 
