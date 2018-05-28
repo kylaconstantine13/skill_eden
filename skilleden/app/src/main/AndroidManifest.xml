@@ -32,8 +32,9 @@
         <activity
             android:name=".SkillPlanTabbedActivity"
             android:label="@string/title_activity_skill_plan_tabbed"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Messages"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Messages" />
+        <activity android:name=".SkillDetailActivity"></activity>
     </application>
 
 </manifest>

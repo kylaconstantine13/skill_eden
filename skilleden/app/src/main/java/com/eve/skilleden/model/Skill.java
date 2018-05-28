@@ -23,6 +23,9 @@ public class Skill {
         this.id = 0;
         this.name = "Unknown Skill";
         this.description = "An unknown skill.";
+        this.group = "Unknown group";
+        this.primaryAttr = "Unknown primary attribute";
+        this.secondaryAttr = "Unknown secondary attribute";
     }
 
     public Skill(@NonNull String name) {
@@ -49,11 +52,51 @@ public class Skill {
         return this.group;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public int getAlphaLevelCap() {
+        return alphaLevelCap;
+    }
+
+    public Boolean getCanTrainOnAlpha() {
+        return canTrainOnAlpha;
+    }
+
+    public Boolean getCanTrainOnTrial() {
+        return canTrainOnTrial;
+    }
+
+    public long getCost() {
+        return cost;
+    }
+
+    public Boolean getPublic() {
+        return isPublic;
+    }
+
+    public List<Skill> getPrerequisites() {
+        return prerequisites;
+    }
+
+    public String getPrimaryAttr() {
+        return primaryAttr;
+    }
+
+    public String getSecondaryAttr() {
+        return secondaryAttr;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
     @Override
     public String toString() {
         return "Skill{" +
                 "name='" + name + '\'' +
-//                ", description='" + description + '\'' +
+                ", description='" + description + '\'' +
 //                ", alphaLevelCap=" + alphaLevelCap +
 //                ", canTrainOnAlpha=" + canTrainOnAlpha +
 //                ", canTrainOnTrial=" + canTrainOnTrial +
