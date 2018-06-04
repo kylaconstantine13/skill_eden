@@ -94,25 +94,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buttonOnClick(View v) {
-        Button testButton = (Button) v;
         ((Button) v).setText("SUP DOODS");
-        //v = (Button)findViewById(R.id.reset);
 
-        ConstraintLayout background = (ConstraintLayout) findViewById(R.id.make_background); //Gets the background object
-        background.setBackgroundColor(Color.RED); //change backgrond object color to red
+        ConstraintLayout background = findViewById(R.id.make_background); //Gets the background object
+        background.setBackgroundColor(Color.RED); //change background object color to red
 
-        TextView middleText = (TextView) findViewById(R.id.textView2);
+        TextView middleText = findViewById(R.id.textView2);
         middleText.setText("Change text");
-
-        /*View view = this.getWindow().getDecorView();
-        view.setBackgroundColor(15);
-        //testButton = findViewById(R.id.reset);*/
     }
+
     public void openSkillPlanActivity(){
         Intent intent = new Intent(this, SkillPlanTabbedActivity.class);
         startActivity(intent);
     }
-
 
     public void openSkillActivity() {
         Intent intent = new Intent(this, SkillActivity.class);
