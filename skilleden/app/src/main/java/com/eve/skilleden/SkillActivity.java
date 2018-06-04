@@ -31,7 +31,7 @@ public class SkillActivity extends AppCompatActivity {
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
-        mRecyclerView.setHasFixedSize(true);  //TODO: remove in future?
+        mRecyclerView.setHasFixedSize(true);
 
         // specify an adapter (see also next example)
         staticSkills = new StaticSkills();

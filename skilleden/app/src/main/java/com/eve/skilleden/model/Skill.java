@@ -2,20 +2,31 @@ package com.eve.skilleden.model;
 
 import android.support.annotation.NonNull;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Skill {
+public class Skill implements Serializable {
     private int id;
     private String name;
     private String description;
+
+    @SerializedName("alpha_level_cap")
     private int alphaLevelCap;
+    @SerializedName("can_train_on_alpha")
     private Boolean canTrainOnAlpha;
+    @SerializedName("can_train_on_trial")
     private Boolean canTrainOnTrial;
     private long cost;
     private String group;
+    @SerializedName("is_public")
     private Boolean isPublic;
     private List<Skill> prerequisites;
+    @SerializedName("primary_attribute")
     private String primaryAttr;
+    @SerializedName("secondary_attribute")
     private String secondaryAttr;
     private int rank;
 
@@ -26,6 +37,9 @@ public class Skill {
         this.group = "Unknown group";
         this.primaryAttr = "Unknown primary attribute";
         this.secondaryAttr = "Unknown secondary attribute";
+        this.canTrainOnAlpha = false;
+        this.canTrainOnTrial = false;
+        this.prerequisites = new ArrayList<>();
     }
 
     public Skill(@NonNull String name) {
@@ -38,6 +52,51 @@ public class Skill {
 
     public void setName(@NonNull String name) {
         this.name = name;
+    }
+
+    public void setCanTrainOnAlpha(Boolean canTrainOnAlpha) {
+        this.canTrainOnTrial = canTrainOnAlpha;
+    }
+
+    public void setCanTrainOnTrial(Boolean canTrainOnTrial){
+        this.canTrainOnTrial = canTrainOnTrial;
+    }
+
+    public void setPrerequisites(List<Skill> prerequisites) {
+        this.prerequisites = prerequisites;
+    }
+
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setAlphaLevelCap(int alphaLevelCap) {
+        this.alphaLevelCap = alphaLevelCap;
+    }
+
+    public void setCost(long cost) {
+        this.cost = cost;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public void setPublic(Boolean aPublic) {
+        isPublic = aPublic;
+    }
+
+    public void setPrimaryAttr(String primaryAttr) {
+        this.primaryAttr = primaryAttr;
+    }
+
+    public void setSecondaryAttr(String secondaryAttr) {
+        this.secondaryAttr = secondaryAttr;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
     }
 
     public int getId() {

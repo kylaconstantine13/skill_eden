@@ -6,46 +6,137 @@
     android:layout_height="match_parent"
     tools:context=".SkillDetailActivity">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="368dp"
-        android:layout_height="662dp"
-        android:layout_marginTop="8dp"
+    <TextView
+        android:id="@+id/skill_name"
+        android:layout_width="282dp"
+        android:layout_height="66dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:singleLine="false"
+        android:text="Skill Name"
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Title"
+        android:textColor="?attr/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="normal" />
+
+    <TextView
+        android:id="@+id/skill_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/skill_name"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="14dp"
+        android:text="cost: 12397"
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:textColor="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:visibility="visible"
+        app:cardBackgroundColor="?attr/colorPrimaryDark">
+
+    </android.support.v7.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/skill_alpha_avail"
+        style="?android:attr/starStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/white"
+        android:tint="@android:color/holo_orange_dark"
+        android:visibility="invisible"
+        app:srcCompat="@android:drawable/star_on" />
+
+    <ImageButton
+        android:id="@+id/skill_trial_avail"
+        style="?android:attr/starStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/skill_alpha_avail"
+        android:background="@android:color/white"
+        android:tint="@android:color/darker_gray"
+        android:visibility="invisible"
+        app:srcCompat="@android:drawable/star_off" />
+
+    <TextView
+        android:id="@+id/skill_secondary_attri"
+        android:layout_width="361dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/skill_primary_attri"
+        android:lineSpacingExtra="8sp"
+        android:text="Secondary Attribute: Text for Secondary Attribute"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:id="@+id/skill_rank"
+        android:layout_width="361dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/skill_name"
+        android:lineSpacingExtra="8sp"
+        android:text="Rank: Rank"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:id="@+id/skill_primary_attri"
+        android:layout_width="368dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/skill_rank"
+        android:lineSpacingExtra="8sp"
+        android:text="Primary Attribute: Text for primary attribute"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="248dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="96dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/skill_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Skill Name" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/skill_cost"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="176dp"
-            android:text="Cost"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText3" />
+            <TextView
+                android:id="@+id/skill_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="107dp"
+                android:ems="10"
+                android:singleLine="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintHorizontal_bias="0.499"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Description Placeholder wraps page" />
 
-        <TextView
-            android:id="@+id/skill_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:ems="10"
-            app:layout_constraintEnd_toStartOf="@+id/scrollView2"
-            app:layout_constraintHorizontal_bias="0.499"
-            app:layout_constraintStart_toEndOf="@+id/scrollView2"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/skill_prereq"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/skill_secondary_attri"
+                android:lineSpacingExtra="8sp"
+                android:text="Prerequisites"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:visibility="visible" />
+
         </LinearLayout>
     </ScrollView>
+
 </RelativeLayout>
