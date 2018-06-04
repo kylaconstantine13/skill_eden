@@ -37,7 +37,7 @@ public class SkillGroup {
         this.id = id;
     }
 
-    public void setskills(List<Skill> skills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
 

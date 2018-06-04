@@ -53,15 +53,15 @@ public class StaticSkills {
         Log.d(TAG, "Creating static skill list.  "); //TODO: remove
         for (SkillGroup sg : file.getSkillGroups()) {
             SkillGroup group = new SkillGroup(sg.getId(), sg.getName());
-            groups.add(group);
-            groupsById.put(group.getId(), group);
-            groupsByName.put(group.getName(), group);
             for (Skill s : sg.getSkills()) {
                 skills.add(s);
                 skillsById.put(s.getId(), s);
                 skillsByName.put(s.getName(), s);
             }
-            group.setskills(sg.getSkills());
+            groupsById.put(group.getId(), group);
+            groupsByName.put(group.getName(), group);
+            group.setSkills(skills);
+            groups.add(group);
         }
     }
 
