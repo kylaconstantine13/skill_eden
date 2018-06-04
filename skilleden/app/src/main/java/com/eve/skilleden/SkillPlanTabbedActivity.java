@@ -1,7 +1,10 @@
 package com.eve.skilleden;
 
+import android.app.ActionBar;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -22,16 +25,66 @@ import android.content.res.Resources.Theme;
 
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class SkillPlanTabbedActivity extends AppCompatActivity {
+
+    private static ArrayList<String> basicMining = new ArrayList<>();
+    private static ArrayList<String> altMining = new ArrayList<>();
+    private static ArrayList<String> advancedMining = new ArrayList<>();
+    private static ArrayList<String> tanking = new ArrayList<>();
+    private static ArrayList<String> fighter = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skill_plan_tabbed);
 
+        basicMining.add("Spaceship Command IV : 18 hours");
+        basicMining.add("Industry II-V : 5 days 2 hours 33 minutes");
+        basicMining.add("Astrogeology I-IV : 2 days 17 hours 35 minutes");
+        basicMining.add("Mining Frigate II-III : 7.5 hours");
+        basicMining.add("Mining Barge I : 30 minutes");
+        basicMining.add("Mining Barge II-V : 20 days 14 hours");
+        basicMining.add("Astrogeology V : 12 days 17 hours 25 minutes");
+        basicMining.add("Exhumers I-III : 19 hours 19 minutes" + "\n\n" +
+                "And you're ready to get into your Hulk (with Strip Miner I).");
+
+        altMining.add("Industry V");
+        altMining.add("Mining IV ");
+        altMining.add("Astrogeology V");
+        altMining.add("Spaceship Command IV");
+        altMining.add("Mining Barge V");
+        altMining.add("Exhumers III");
+
+        advancedMining.add("Exhumers V");
+        advancedMining.add("Mining V");
+        advancedMining.add("Target Management IV ");
+        advancedMining.add("Long Range Targeting III ");
+        advancedMining.add("Mining Upgrades IV ");
+        advancedMining.add("Drones V");
+        advancedMining.add("Light Drone Operation I");
+        advancedMining.add("Veldspar Processing IV");
+        advancedMining.add("Scordite Processing IV");
+        advancedMining.add("Plagioclase Processing IV");
+        advancedMining.add("Ice Harvesting V");
+        advancedMining.add("Cybernetics V");
+        advancedMining.add("Mining Drone Operation V");
+        advancedMining.add("Drone Interfacing V");
+
+        tanking.add("Shield Operation III");
+        tanking.add("Shield Management III ");
+        tanking.add("Shield Compensation III ");
+        tanking.add("Tactical Shield Manipulation IV");
+        tanking.add("Kinetic Shield Compensation III");
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Setup spinner
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -39,11 +92,10 @@ public class SkillPlanTabbedActivity extends AppCompatActivity {
         spinner.setAdapter(new MyAdapter(
                 toolbar.getContext(),
                 new String[]{
-                        "Null-Sec Mining",
-                        "High-Sec Mining",
-                        "Gas Mining",
-                        "Explorer",
-                        "Fighter",
+                        "Basic Mining",
+                        "Alt Mining",
+                        "Advanced Mining",
+                        "Tanking",
                 }));
 
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -71,6 +123,8 @@ public class SkillPlanTabbedActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
 
 
@@ -92,6 +146,11 @@ public class SkillPlanTabbedActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        /*else if(id == android.R.id.home){
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        }*/
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -169,6 +228,28 @@ public class SkillPlanTabbedActivity extends AppCompatActivity {
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             textView.append(" We will insert the array list of our skill plans here");
+
+            StringBuilder builder = new StringBuilder();
+
+            switch(getArguments().getInt(ARG_SECTION_NUMBER)){
+                case 0: for (String details : basicMining) {
+                    builder.append("\n" + details + "\n");
+                }
+                case 1: for (String details : altMining) {
+                    builder.append("\n" + details + "\n");
+                }
+                case 2: for (String details : advancedMining) {
+                    builder.append("\n" + details + "\n");
+                }
+                case 3: for (String details : tanking) {
+                    builder.append("\n" + details + "\n");
+                }
+            }
+
+
+            textView.setText(builder.toString());
+
+
             return rootView;
         }
     }
