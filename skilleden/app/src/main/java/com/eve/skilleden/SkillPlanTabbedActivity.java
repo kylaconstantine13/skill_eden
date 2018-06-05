@@ -96,6 +96,7 @@ public class SkillPlanTabbedActivity extends AppCompatActivity {
                         "Alt Mining",
                         "Advanced Mining",
                         "Tanking",
+
                 }));
 
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -230,18 +231,19 @@ public class SkillPlanTabbedActivity extends AppCompatActivity {
             textView.append(" We will insert the array list of our skill plans here");
 
             StringBuilder builder = new StringBuilder();
+            builder.append("\n\n\n\n");
 
             switch(getArguments().getInt(ARG_SECTION_NUMBER)){
-                case 0: for (String details : basicMining) {
+                case 1: for (String details : basicMining) {
                     builder.append("\n" + details + "\n");
                 }
-                case 1: for (String details : altMining) {
+                case 2: for (String details : altMining) {
                     builder.append("\n" + details + "\n");
                 }
-                case 2: for (String details : advancedMining) {
+                case 3: for (String details : advancedMining) {
                     builder.append("\n" + details + "\n");
                 }
-                case 3: for (String details : tanking) {
+                case 4: for (String details : tanking) {
                     builder.append("\n" + details + "\n");
                 }
             }
