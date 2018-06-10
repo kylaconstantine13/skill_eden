@@ -1,17 +1,15 @@
-package com.eve.skilleden.skillmodels;
+package com.eve.skilleden.model;
 
-import android.nfc.Tag;
 import android.util.Log;
 
 import com.bignerdranch.expandablerecyclerview.Model.ParentObject;
-import com.eve.skilleden.model.Skill;
-import com.eve.skilleden.model.SkillGroup;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
+/**Used by expandable recycler view. Holds the skill group name and skills associated with it.*/
 public class SkillGroupParentObject implements ParentObject {
     private List<Object> mChildrenList;
     public final String name;
@@ -19,7 +17,7 @@ public class SkillGroupParentObject implements ParentObject {
     public SkillGroupParentObject(SkillGroup skillGroup) {
         this.mChildrenList = new ArrayList<>();
         this.name = skillGroup.getName();
-        Log.d(TAG, "Skills for skill group " + name + ". " + skillGroup.getSkills()); //TODO: remove
+        Log.d(TAG, "Skills for skill group " + name + ". " + skillGroup.getSkills());
         for (Skill skill : skillGroup.getSkills()) {
             mChildrenList.add(skill);
         }

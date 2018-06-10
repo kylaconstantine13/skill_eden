@@ -5,17 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.bignerdranch.expandablerecyclerview.Model.ParentObject;
 import com.eve.skilleden.model.SkillGroup;
-import com.eve.skilleden.skillmodels.SkillGroupParentObject;
+import com.eve.skilleden.model.SkillGroupParentObject;
 
 import java.util.ArrayList;
 
-import static android.content.ContentValues.TAG;
-
-//TODO: rename
+/**
+ * Activity for Skill List Feature.
+ * Displays skillGroups using an expandable recycler view.
+ */
 public class SkillActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private SkillAdapter skillAdapter;
@@ -29,11 +29,10 @@ public class SkillActivity extends AppCompatActivity {
         setContentView(R.layout.skill_list_recycle_view);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
+        // Improves performance. content does not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
-        // specify an adapter (see also next example)
+        /* load static skill data to create parent group objects that hold skill groups */
         staticSkills = new StaticSkills();
         staticSkills.load(getAssets());
 

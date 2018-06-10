@@ -1,4 +1,4 @@
-package com.eve.skilleden.skillmodels;
+package com.eve.skilleden.model;
 
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -8,7 +8,10 @@ import com.bignerdranch.expandablerecyclerview.ViewHolder.ChildViewHolder;
 import com.eve.skilleden.R;
 import com.eve.skilleden.model.Skill;
 
-//TODO: implement on click listener that opens a new page /http://bignerdranch.github.io/expandable-recycler-view/
+/**
+ * Displays the text view for a particular skill
+ * source:http://bignerdranch.github.io/expandable-recycler-view/
+ */
 public class SkillChildViewHolder extends ChildViewHolder {
 
     public TextView mSkillText;

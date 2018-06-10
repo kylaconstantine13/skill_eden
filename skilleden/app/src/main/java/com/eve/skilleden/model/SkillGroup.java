@@ -1,6 +1,5 @@
 package com.eve.skilleden.model;
 
-import android.support.v4.util.Preconditions;
 
 import java.util.List;
 import java.util.ArrayList;

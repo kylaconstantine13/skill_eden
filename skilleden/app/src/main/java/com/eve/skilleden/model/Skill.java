@@ -156,14 +156,6 @@ public class Skill implements Serializable {
         return "Skill{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
-//                ", alphaLevelCap=" + alphaLevelCap +
-//                ", canTrainOnAlpha=" + canTrainOnAlpha +
-//                ", canTrainOnTrial=" + canTrainOnTrial +
-//                ", cost=" + cost +
-//                ", prerequisites=" + prerequisites +
-//                ", primaryAttr='" + primaryAttr + '\'' +
-//                ", secondaryAttr='" + secondaryAttr + '\'' +
-//                ", rank=" + rank + TODO: format later
                 '}';
     }
 }

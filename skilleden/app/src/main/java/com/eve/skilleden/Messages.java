@@ -15,9 +15,8 @@ public class Messages extends AppCompatActivity {
         setContentView(R.layout.activity_messages);
         mRecyclerView = findViewById(R.id.message_recycler);
 
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        mRecyclerView.setHasFixedSize(true);  //TODO: remove in future?
+        //improves performance
+        mRecyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);

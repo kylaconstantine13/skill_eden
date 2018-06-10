@@ -1,6 +1,5 @@
 package com.eve.skilleden;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -13,10 +12,9 @@ import android.view.ViewGroup;
 import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
 import com.bignerdranch.expandablerecyclerview.Model.ParentObject;
 import com.eve.skilleden.model.Skill;
-import com.eve.skilleden.model.SkillGroup;
-import com.eve.skilleden.skillmodels.SkillChildViewHolder;
-import com.eve.skilleden.skillmodels.SkillGroupParentObject;
-import com.eve.skilleden.skillmodels.SkillGroupParentViewHolder;
+import com.eve.skilleden.model.SkillChildViewHolder;
+import com.eve.skilleden.model.SkillGroupParentObject;
+import com.eve.skilleden.model.SkillGroupParentViewHolder;
 
 import java.util.List;
 
@@ -57,7 +55,7 @@ public class SkillGroupAdapter extends ExpandableRecyclerAdapter<SkillGroupParen
     public void onBindParentViewHolder(SkillGroupParentViewHolder skillGroupParentViewHolder, int parentPosition, Object parentObject) {
         SkillGroupParentObject skillGroup = (SkillGroupParentObject) parentObject;
         if (skillGroup == null) {
-            Log.d(TAG, "Skill gorup is null!!"); //TODO: remoce
+            Log.d(TAG, "Skill group is null!!");
         }
         skillGroupParentViewHolder.bind(skillGroup);
         skillGroupParentViewHolder.mTextView.setOnClickListener(new View.OnClickListener() {
@@ -78,10 +76,7 @@ public class SkillGroupAdapter extends ExpandableRecyclerAdapter<SkillGroupParen
                 Log.d(TAG, skill.getName() + " clicked.");
                 Context context = v.getContext();
                 Intent intent = new Intent(context, SkillDetailActivity.class);
-                intent.putExtra("skill", skill);
-//                intent.putExtra("skill_description", skill.getDescription());
-//                intent.putExtra("skill_name", skill.getName()); TODO: remove
-//                intent.putExtra("skill_cost", skill.getCost());
+                intent.putExtra("skill", skill); //pass skill to skill detail activity
                 context.startActivity(intent);
             }
         });

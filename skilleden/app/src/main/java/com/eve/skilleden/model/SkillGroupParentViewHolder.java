@@ -1,4 +1,4 @@
-package com.eve.skilleden.skillmodels;
+package com.eve.skilleden.model;
 
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -8,6 +8,11 @@ import android.widget.TextView;
 import com.bignerdranch.expandablerecyclerview.ViewHolder.ParentViewHolder;
 import com.eve.skilleden.R;
 
+/**
+ * This class is used to hold the text views associated with a SkillGroupParentObject.
+ * The SkillGroupAdapter class uses this to determine view content to return based upon
+ * skill group parent object.
+ */
 public class SkillGroupParentViewHolder extends ParentViewHolder {
     public TextView mTextView;
     @NonNull

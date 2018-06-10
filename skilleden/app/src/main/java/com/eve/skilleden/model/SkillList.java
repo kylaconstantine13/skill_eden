@@ -20,7 +20,8 @@ import org.slf4j.LoggerFactory;
 
 
 //TODO: refactor to build class to try to populate  skills - build ticket - fix SkillListViewModel
-//TODO: also make this singleton -- this isn't character specific.
+//Outdated skill list model. Leaving in temporarily in case work that uses this will be introduced
+// at a later date. Will remove before release to Google Play if not utilized in final version.
 public class SkillList {
     private List<SkillGroup> skillGroupList;
     private static final Logger log = LoggerFactory.getLogger(SkillList.class);

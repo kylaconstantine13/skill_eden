@@ -1,9 +1,7 @@
 package com.eve.skilleden;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -15,16 +13,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.eve.skilleden.model.Skill;
 
+/**
+ *  Starts on program entry.
+ **/
 public class MainActivity extends AppCompatActivity {
     //implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerLayout;
     TextView stringTextView;
-//    private StaticSkills staticSkills;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,16 +69,7 @@ public class MainActivity extends AppCompatActivity {
                             openSkillPlanActivity();
                             // Handle the camera action
                         } else if (id == R.id.skill_list) {
-//                            stringTextView = findViewById(R.id.textView2);
-////                            ListView = findViewById(R.id.))
-//
-//                            StaticSkills list = new StaticSkills();
-//                            list.load(getAssets());
-//                            stringTextView.setText(list.groupNamesToString());
-
                             openSkillActivity();
-//                            Intent intent = new Intent(this, SkillActivity.class);
-//                            startActivity(intent);
 
                         } else if (id == R.id.messaging) {
                             openMessages();
@@ -91,16 +80,6 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
-    }
-
-    public void buttonOnClick(View v) {
-        ((Button) v).setText("SUP DOODS");
-
-        ConstraintLayout background = findViewById(R.id.make_background); //Gets the background object
-        background.setBackgroundColor(Color.RED); //change background object color to red
-
-        TextView middleText = findViewById(R.id.textView2);
-        middleText.setText("Change text");
     }
 
     public void openSkillPlanActivity(){
@@ -150,25 +129,3 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-
-
-
- /*   @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_manage) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-}*/

@@ -13,7 +13,9 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-//TODO: refactor this  //FOR NOW - display skill groups
+/**
+ * Used by SkillPlan Activity. Displays skill groups as list using Recyclable view.
+ */
 public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.ViewHolder> {
     private List<SkillGroup> skillGroupList;
     private StaticSkills staticSkills;
@@ -31,7 +33,6 @@ public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.ViewHolder> 
                 }
             });
             mTextView = (TextView) v.findViewById(R.id.skill_group_text_view);
-            //skill_group_row_item.xml
 
         }
 
